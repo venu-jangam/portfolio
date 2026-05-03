@@ -157,14 +157,17 @@ function App() {
         org: "Space Copy, Canada",
         period: "10/2024 - Present",
         description: "Systems Engineering for ISRU technologies for Additive Manufacturing on the Moon and extreme environments. Progressed from Intern to Mechanical Engineer to Jr. Systems Engineer.",
-        link: "https://www.spacecopy.com/"
+        link: "https://www.spacecopy.com/",
+        image: "./ISU Printer.png",
+        skills: "CAD, structural analysis, System engineering documentation: FFBD, ConOps, PBS"
       },
       {
         title: "Student Researcher (Lunar Regolith)",
-        org: "University of Wroclaw",
+        org: "",
         period: "12/2025 - Present",
-        description: "DEM analysis on lunar regolith simulant to study behavioral properties for future missions.",
-        link: "#"
+        description: "Study of lunar regolith & DEM analysis on lunar regolith simulant to study behavioral properties for future missions.",
+        link: "#",
+        skills: "DEM simulations, EDEM software"
       }
     ],
     robotics: [
@@ -180,7 +183,9 @@ function App() {
         org: "Robotics Research Lab (RRL), India",
         period: "04/2022 - 06/2025",
         description: "Design, prototyping, and manufacturing of ready-to-function parts for human-sized robots.",
-        link: "https://rrlgcoeara.in/"
+        link: "https://rrlgcoeara.in/",
+        image: "./Researcher RRL.png",
+        skills: "CAD, FEM analysis, manufacturing, AIT, team management, sponsorship, mentoring"
       }
     ],
     engineering: [
@@ -311,7 +316,12 @@ function App() {
               className="p-8 rounded-3xl bg-white dark:bg-space-800 border border-gray-100 dark:border-gray-700 shadow-xl shadow-gray-200/20 dark:shadow-none"
             >
               <div className="text-blue-500 font-mono text-sm mb-2">09/2025 - Present</div>
-              <h3 className="text-xl font-bold mb-2">Masters of Space Studies</h3>
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-xl font-bold">Masters of Space Studies</h3>
+                <a href="https://www.isunet.edu/" target="_blank" rel="noopener noreferrer" className="shrink-0 ml-4 hover:scale-110 transition-transform">
+                  <img src="https://logo.clearbit.com/isunet.edu" alt="ISU Logo" className="w-10 h-10 rounded-full bg-white object-contain p-1 border border-gray-200" onError={(e) => e.target.style.display='none'} />
+                </a>
+              </div>
               <p className="text-gray-600 dark:text-gray-400 mb-4">Space Engineering & Applications</p>
               <div className="flex items-center gap-2 text-sm text-gray-500">
                 <MapPin size={14} />
@@ -324,7 +334,12 @@ function App() {
               className="p-8 rounded-3xl bg-white dark:bg-space-800 border border-gray-100 dark:border-gray-700 shadow-xl shadow-gray-200/20 dark:shadow-none"
             >
               <div className="text-blue-500 font-mono text-sm mb-2">06/2021 - 06/2025</div>
-              <h3 className="text-xl font-bold mb-2">Bachelor of Engineering</h3>
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-xl font-bold">Bachelor of Engineering</h3>
+                <a href="https://www.gcoeara.ac.in/" target="_blank" rel="noopener noreferrer" className="shrink-0 ml-4 hover:scale-110 transition-transform">
+                  <img src="https://logo.clearbit.com/gcoeara.ac.in" alt="GCOEARA Logo" className="w-10 h-10 rounded-full bg-white object-contain p-1 border border-gray-200" onError={(e) => e.target.style.display='none'} />
+                </a>
+              </div>
               <p className="text-gray-600 dark:text-gray-400 mb-4">Mechanical Engineering</p>
               <div className="flex items-center gap-2 text-sm text-gray-500">
                 <MapPin size={14} />
@@ -372,10 +387,24 @@ function App() {
                     >
                       <div className="text-xs font-mono text-blue-500 mb-3">{project.period}</div>
                       <h4 className="text-xl font-bold mb-2 group-hover:text-blue-500 transition-colors">{project.title}</h4>
-                      <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">{project.org}</p>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-12">
+                      {project.org && <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">{project.org}</p>}
+                      
+                      {project.image && (
+                        <div className="w-full h-48 mb-4 rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700 bg-gray-100 dark:bg-space-900">
+                          <img src={project.image} alt={project.title} className="w-full h-full object-cover" onError={(e) => e.target.style.display = 'none'} />
+                        </div>
+                      )}
+                      
+                      <p className={`text-gray-600 dark:text-gray-300 text-sm leading-relaxed ${project.skills ? 'mb-4' : 'mb-12'}`}>
                         {project.description}
                       </p>
+                      
+                      {project.skills && (
+                        <div className="mb-12 border-t border-gray-100 dark:border-gray-700 pt-4">
+                          <span className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">Skills: </span>
+                          <span className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">{project.skills}</span>
+                        </div>
+                      )}
                       
                       {project.link !== "#" && (
                         <a 
@@ -399,15 +428,12 @@ function App() {
 
       {/* Contact Section */}
       <section id="contact" className="relative z-10 py-24 mb-20">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="p-10 md:p-16 rounded-[3rem] bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-2xl shadow-blue-500/30 overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-400/20 rounded-full -ml-32 -mb-32 blur-3xl"></div>
-            
+        <div className="container mx-auto px-6 max-w-2xl">
+          <div className="p-8 md:p-12 rounded-[2rem] bg-white dark:bg-space-800 border border-gray-200 dark:border-gray-700 shadow-xl relative">
             <form 
               action="mailto:venujangam.fr@gmail.com" 
               method="post" 
-              enctype="text/plain"
+              encType="text/plain"
               className="relative z-10 space-y-4"
             >
               <div className="grid md:grid-cols-2 gap-4">
@@ -415,14 +441,14 @@ function App() {
                   type="text" 
                   placeholder="Your Name" 
                   name="name"
-                  className="w-full px-6 py-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md placeholder:text-blue-100 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                  className="w-full px-6 py-4 rounded-xl bg-gray-50 dark:bg-space-900 border border-gray-200 dark:border-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-white"
                   required
                 />
                 <input 
                   type="email" 
                   placeholder="Your Email" 
                   name="email"
-                  className="w-full px-6 py-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md placeholder:text-blue-100 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                  className="w-full px-6 py-4 rounded-xl bg-gray-50 dark:bg-space-900 border border-gray-200 dark:border-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-white"
                   required
                 />
               </div>
@@ -430,12 +456,12 @@ function App() {
                 placeholder="Message" 
                 name="message"
                 rows="4"
-                className="w-full px-6 py-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md placeholder:text-blue-100 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                className="w-full px-6 py-4 rounded-xl bg-gray-50 dark:bg-space-900 border border-gray-200 dark:border-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-white"
                 required
               ></textarea>
               <button 
                 type="submit"
-                className="w-full py-4 rounded-2xl bg-white text-blue-600 font-bold hover:bg-blue-50 transition-all flex items-center justify-center gap-2 group"
+                className="w-full py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 group shadow-lg shadow-blue-500/20"
               >
                 Send Message
                 <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
