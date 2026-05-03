@@ -157,14 +157,7 @@ function App() {
         org: "Space Copy, Canada",
         period: "10/2024 - Present",
         description: "Systems Engineering for ISRU technologies for Additive Manufacturing on the Moon and extreme environments. Progressed from Intern to Mechanical Engineer to Jr. Systems Engineer.",
-        link: "https://www.linkedin.com/in/venu-jangam"
-      },
-      {
-        title: "Lead Mechanical Engineer",
-        org: "ISU Team Project",
-        period: "10/2025 - Present",
-        description: "Design and prototyping of Rover, Drone, EDL Vehicle, and payload deployment for a Mars mission.",
-        link: "#"
+        link: "https://www.spacecopy.com/"
       },
       {
         title: "Student Researcher (Lunar Regolith)",
@@ -176,12 +169,11 @@ function App() {
     ],
     robotics: [
       {
-        title: "u robot",
-        org: "Personal Project",
-        period: "Ongoing",
-        description: "Developing an autonomous robotic platform. Focused on modular design and integrated sensing.",
-        link: "#",
-        isGallery: true
+        title: "Lead Mechanical Engineer",
+        org: "International Space University Team Project, France",
+        period: "10/2025 - Present",
+        description: "Design, prototyping & analysis of Rover, Drone, Entry Descent & Landing Vehicle, Payload Deployment mechanisms for Mars mission.",
+        link: "#"
       },
       {
         title: "Researcher - Robotics",
@@ -258,7 +250,7 @@ function App() {
           className="w-44 h-44 md:w-56 md:h-56 rounded-full bg-white dark:bg-space-800 border-4 border-white dark:border-gray-700 shadow-2xl overflow-hidden mb-10 transition-transform duration-500 flex items-center justify-center group"
         >
           <img 
-            src="/Venu.jpeg" 
+            src="./Venu.jpeg" 
             alt="Venu Jangam" 
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             onError={(e) => {
@@ -269,7 +261,7 @@ function App() {
           />
           <div className="hidden w-full h-full flex-col items-center justify-center text-gray-400 bg-gray-100 dark:bg-space-800">
              <Rocket size={40} className="mx-auto mb-2 text-blue-500" />
-             <p className="text-xs font-mono px-4">Upload Venu.jpeg </p>
+             <p className="text-xs font-mono px-4">Upload Venu.jpeg to repo</p>
           </div>
         </motion.div>
 
@@ -281,7 +273,7 @@ function App() {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400">
             Venu Jangam
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl font-light mb-10 leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light mb-10 leading-relaxed whitespace-nowrap overflow-hidden text-ellipsis px-4 w-full max-w-full">
             Mechanical & Space Engineer <span className="text-blue-500 font-normal">|</span> Space Resources & Space Technologies
           </p>
         </motion.div>
